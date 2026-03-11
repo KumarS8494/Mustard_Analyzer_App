@@ -6,7 +6,7 @@ const testimonialData: Testimonial[] = [
   {
     id: 1,
     name: "Mr. Suman Kumar",
-    designation: "Project Research Scientist, Amity University, Noida.",
+    designation: "Project Research Scientist,Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
     content:"Working on the core algorithms for MustardSense has been a journey in precision and impact. We've successfully integrated dual-stream networks to ensure that even the smallest anomalies in crop health are detected in real-time. It is rewarding to see complex AI transition from a lab environment into a tool that offers tangible value to farmers. My focus remains on refining our models to ensure the highest diagnostic accuracy in the field.",
     image: "/images/testimonials/sk_profile.jpeg",
     star: 5,
@@ -14,7 +14,7 @@ const testimonialData: Testimonial[] = [
   {
     id: 2,
     name: "Dr. Rakesh Chandra Joshi",
-    designation: "Assistant Professor, Amity University, Noida.",
+    designation: "Assistant Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
     content:
       "Our objective with MustardSense was to bridge the gap between advanced deep learning and practical agricultural application. By incorporating Explainable AI (XAI), we aren’t just giving farmers a result; we are giving them a reason they can trust. This project represents a significant step forward in making high-tech analytics accessible and intuitive for the agricultural community. I am proud of the balance we’ve struck between technical sophistication and user-centric design.",
     image: "/images/testimonials/Rakesh_Chandra_Joshi.jpg",
@@ -23,7 +23,7 @@ const testimonialData: Testimonial[] = [
   {
     id: 3,
     name: "Dr. Malay Kishore Dutta",
-    designation: "Professor, Amity University, Noida.",
+    designation: "Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
     content:
       "MustardSense is a testament to what happens when multidisciplinary expertise meets a pressing global need for food security. As the Project Investigator, I have overseen the evolution of this platform from a conceptual framework into a robust, field-deployable reality. Our team has built more than just an app; we have built a decision-support ecosystem that empowers the agricultural sector with data-driven confidence. We remain committed to leading the way in ethical, impactful AI for sustainable farming.",
     image: "/images/testimonials/director-pic.jpg",

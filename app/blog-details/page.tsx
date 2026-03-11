@@ -35,7 +35,7 @@ const BlogDetailsPage = ({ params }: { params: { id: string } }) => {
     <PredictionTemplate
       title={scannerData.title}
       description={scannerData.paragraph}
-      sampleImages={currentSamples}
+      sampleImages={[scannerData.image]}
     />
   );
 };

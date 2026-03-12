@@ -29,28 +29,28 @@ const Hero = () => {
                   MustardSense - AI-Powered Analytics for Smarter Farmer Desicions
                 </h1>
 
-                <p className="mb-12 text-base !leading-relaxed text-black dark:text-body-color-dark sm:text-lg md:text-xl text-justify">
-                  MustardSense is an AI-powered analytics platform designed to empower farmers
+                <p className="mb-12 h-48 text-base !leading-relaxed text-black dark:text-body-color-dark sm:text-lg md:text-xl text-justify">
+                  {/* MustardSense is an AI-powered analytics platform designed to empower farmers
                   with actionable insights for smarter decision-making. By leveraging advanced
                   machine learning algorithms and real-time data, MustardSense helps farmers
                   optimize crop yields, manage resources efficiently, and make informed choices
                   to enhance their agricultural practices. With MustardSense, farmers can stay
                   ahead of challenges and maximize their productivity in an ever-evolving
-                  agricultural landscape.
+                  agricultural landscape. */}
                 </p>
 
                 <div className="flex flex-col items-center justify-center space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                  <Link
+                  {/* <Link
                     href="/contact"
                     className="rounded-sm bg-primary px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-primary/80"
                   >
                     Contact Us
-                  </Link>
+                  </Link> */}
                   <Link
                     href="/blog"
-                    className="inline-block rounded-sm bg-black px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
+                    className="outline-block rounded-xl bg-sky-800 px-8 py-4 text-base font-semibold text-white duration-300 ease-in-out hover:bg-black/90 dark:bg-white/10 dark:text-white dark:hover:bg-white/5"
                   >
-                    Test on Leaf
+                   Launch the App
                   </Link>
                 </div>
               </div>

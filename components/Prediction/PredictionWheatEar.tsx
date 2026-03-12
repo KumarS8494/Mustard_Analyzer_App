@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { ScanningAnimation } from "./ScanningAnimation";
 
 interface PredictionWheatEarProps {
   title: React.ReactNode;
@@ -242,13 +243,21 @@ const PredictionWheatEar = ({
             /* PHASE 2: Image selected but not yet analyzed (or currently analyzing) */
             <div className="flex flex-col items-center">
               <div className="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-md mb-6 bg-gray-100">
-                <Image
-                  src={selectedImage}
-                  alt="Selected"
-                  fill
-                  className="object-contain p-2"
-                />
-              </div>
+
+                  <Image
+                    src={selectedImage}
+                    alt="Selected"
+                    fill
+                    className="object-contain p-2"
+                  />
+
+                  <ScanningAnimation
+                    isVisible={isAnalyzing}
+                    color="cyan"
+                    duration={2}
+                  />
+
+                </div>
 
               <div className="flex gap-4">
                 <button
@@ -261,7 +270,7 @@ const PredictionWheatEar = ({
                 <button
                   onClick={handleAnalyze}
                   disabled={isAnalyzing}
-                  className="px-8 py-3 rounded-lg bg-primary text-white font-semibold shadow-md disabled:opacity-50"
+                  className="px-8 py-3 rounded-lg bg-primary text-white font-semibold hover:bg-primary/90 transition flex items-center justify-center min-w-[180px] disabled:opacity-50 shadow-md"
                 >
                   {isAnalyzing ? "Analyzing..." : "Analyze Image"}
                 </button>
@@ -281,12 +290,13 @@ const PredictionWheatEar = ({
                 {/* Uploaded Image */}
                 <div className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow">
                   <p className="text-sm text-gray-500 mb-3">Uploaded Image</p>
-                  <div className="relative w-full aspect-square">
+                  <div className="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-md mb-6 bg-gray-100 dark:bg-gray-800">
+
                     <Image
-                      src={selectedImage!}
-                      alt="Uploaded"
+                      src={selectedImage}
+                      alt="Selected Image"
                       fill
-                      className="object-contain"
+                      className="object-contain p-2"
                     />
                   </div>
                 </div>

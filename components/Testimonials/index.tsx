@@ -1,31 +1,44 @@
+"use client";
+
 import { Testimonial } from "@/types/testimonial";
 import SectionTitle from "../Common/SectionTitle";
 import SingleTestimonial from "./SingleTestimonial";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
 
 const testimonialData: Testimonial[] = [
   {
     id: 1,
     name: "Mr. Suman Kumar",
-    designation: "Project Research Scientist,Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
-    content:"Working on the core algorithms for MustardSense has been a journey in precision and impact. We've successfully integrated dual-stream networks to ensure that even the smallest anomalies in crop health are detected in real-time. It is rewarding to see complex AI transition from a lab environment into a tool that offers tangible value to farmers. My focus remains on refining our models to ensure the highest diagnostic accuracy in the field.",
+    designation: "Project Research Scientist, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
+    content: "",
     image: "/images/testimonials/sk_profile.jpeg",
     star: 5,
   },
   {
     id: 2,
-    name: "Dr. Rakesh Chandra Joshi",
-    designation: "Assistant Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
-    content:
-      "Our objective with MustardSense was to bridge the gap between advanced deep learning and practical agricultural application. By incorporating Explainable AI (XAI), we aren’t just giving farmers a result; we are giving them a reason they can trust. This project represents a significant step forward in making high-tech analytics accessible and intuitive for the agricultural community. I am proud of the balance we’ve struck between technical sophistication and user-centric design.",
-    image: "/images/testimonials/Rakesh_Chandra_Joshi.jpg",
+    name: "Dr. Pankaj Sharma",
+    designation: "Joint Director, ICAR-National Institute of Biotic Stress Management, Chhattisgarh.",
+    content: "",
+    image: "/images/testimonials/Dr-Pankaj-Sharma-1.jpg",
     star: 5,
   },
   {
     id: 3,
+    name: "Dr. Rakesh Chandra Joshi",
+    designation: "Assistant Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
+    content: "",
+    image: "/images/testimonials/Rakesh_Chandra_Joshi.jpg",
+    star: 5,
+  },
+  {
+    id: 4,
     name: "Dr. Malay Kishore Dutta",
     designation: "Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
-    content:
-      "MustardSense is a testament to what happens when multidisciplinary expertise meets a pressing global need for food security. As the Project Investigator, I have overseen the evolution of this platform from a conceptual framework into a robust, field-deployable reality. Our team has built more than just an app; we have built a decision-support ecosystem that empowers the agricultural sector with data-driven confidence. We remain committed to leading the way in ethical, impactful AI for sustainable farming.",
+    content: "",
     image: "/images/testimonials/director-pic.jpg",
     star: 5,
   },
@@ -34,27 +47,50 @@ const testimonialData: Testimonial[] = [
 const Testimonials = () => {
   return (
     <section className="dark:bg-bg-color-dark bg-gray-light relative z-10 py-16 md:py-20 lg:py-28">
+      
       <div className="container">
         <SectionTitle
           title="Our Team Members"
-          paragraph="........."
+          paragraph="Meet the researchers and experts leading the MustardSense initiative at ACAI (Amity University) & ICAR-National Institute of Biotic Stress Management."
           center
         />
 
-        <div className="grid grid-cols-1 gap-x-8 gap-y-10 md:grid-cols-2 lg:grid-cols-3 text-justify">
-          {testimonialData.map((testimonial) => (
-            <SingleTestimonial key={testimonial.id} testimonial={testimonial} />
-          ))}
-        </div>
-      </div>
-      <div className="absolute right-0 top-5 z-[-1]">
-        <svg
-          width="238"
-          height="531"
-          viewBox="0 0 238 531"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
+        {/* Swiper Slider */}
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={30}
+          slidesPerView={3}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+          }}
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+          className="mt-10"
         >
+          {testimonialData.map((testimonial) => (
+            <SwiperSlide key={testimonial.id}>
+              <div className="bg-white dark:bg-[#1D2144] rounded-lg shadow-lg p-4 h-full">
+                <SingleTestimonial testimonial={testimonial} />
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+
+      {/* Background SVG */}
+      <div className="absolute right-0 top-5 z-[-1]">
+        <svg width="238" height="531" viewBox="0 0 238 531" fill="none">
           <rect
             opacity="0.3"
             x="422.819"
@@ -63,21 +99,11 @@ const Testimonials = () => {
             height="541.607"
             rx="2"
             transform="rotate(51.2997 422.819 -70.8145)"
-            fill="url(#paint0_linear_83:2)"
-          />
-          <rect
-            opacity="0.3"
-            x="426.568"
-            y="144.886"
-            width="59.7544"
-            height="541.607"
-            rx="2"
-            transform="rotate(51.2997 426.568 144.886)"
-            fill="url(#paint1_linear_83:2)"
+            fill="url(#paint0_linear)"
           />
           <defs>
             <linearGradient
-              id="paint0_linear_83:2"
+              id="paint0_linear"
               x1="517.152"
               y1="-251.373"
               x2="517.152"
@@ -87,94 +113,10 @@ const Testimonials = () => {
               <stop stopColor="#4A6CF7" />
               <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
             </linearGradient>
-            <linearGradient
-              id="paint1_linear_83:2"
-              x1="455.327"
-              y1="-35.673"
-              x2="455.327"
-              y2="675.565"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" />
-              <stop offset="1" stopColor="#4A6CF7" stopOpacity="0" />
-            </linearGradient>
           </defs>
         </svg>
       </div>
-      <div className="absolute bottom-5 left-0 z-[-1]">
-        <svg
-          width="279"
-          height="106"
-          viewBox="0 0 279 106"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <g opacity="0.5">
-            <path
-              d="M-57 12L50.0728 74.8548C55.5501 79.0219 70.8513 85.7589 88.2373 79.3692C109.97 71.3821 116.861 60.9642 156.615 63.7423C178.778 65.291 195.31 69.2985 205.911 62.3533C216.513 55.408 224.994 47.7682 243.016 49.1572C255.835 50.1453 265.278 50.8936 278 45.3373"
-              stroke="url(#paint0_linear_72:302)"
-            />
-            <path
-              d="M-57 1L50.0728 63.8548C55.5501 68.0219 70.8513 74.7589 88.2373 68.3692C109.97 60.3821 116.861 49.9642 156.615 52.7423C178.778 54.291 195.31 58.2985 205.911 51.3533C216.513 44.408 224.994 36.7682 243.016 38.1572C255.835 39.1453 265.278 39.8936 278 34.3373"
-              stroke="url(#paint1_linear_72:302)"
-            />
-            <path
-              d="M-57 23L50.0728 85.8548C55.5501 90.0219 70.8513 96.7589 88.2373 90.3692C109.97 82.3821 116.861 71.9642 156.615 74.7423C178.778 76.291 195.31 80.2985 205.911 73.3533C216.513 66.408 224.994 58.7682 243.016 60.1572C255.835 61.1453 265.278 61.8936 278 56.3373"
-              stroke="url(#paint2_linear_72:302)"
-            />
-            <path
-              d="M-57 35L50.0728 97.8548C55.5501 102.022 70.8513 108.759 88.2373 102.369C109.97 94.3821 116.861 83.9642 156.615 86.7423C178.778 88.291 195.31 92.2985 205.911 85.3533C216.513 78.408 224.994 70.7682 243.016 72.1572C255.835 73.1453 265.278 73.8936 278 68.3373"
-              stroke="url(#paint3_linear_72:302)"
-            />
-          </g>
-          <defs>
-            <linearGradient
-              id="paint0_linear_72:302"
-              x1="256.267"
-              y1="53.6717"
-              x2="-40.8688"
-              y2="8.15715"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
-            </linearGradient>
-            <linearGradient
-              id="paint1_linear_72:302"
-              x1="256.267"
-              y1="42.6717"
-              x2="-40.8688"
-              y2="-2.84285"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
-            </linearGradient>
-            <linearGradient
-              id="paint2_linear_72:302"
-              x1="256.267"
-              y1="64.6717"
-              x2="-40.8688"
-              y2="19.1572"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
-            </linearGradient>
-            <linearGradient
-              id="paint3_linear_72:302"
-              x1="256.267"
-              y1="76.6717"
-              x2="-40.8688"
-              y2="31.1572"
-              gradientUnits="userSpaceOnUse"
-            >
-              <stop stopColor="#4A6CF7" stopOpacity="0" />
-              <stop offset="1" stopColor="#4A6CF7" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
+
     </section>
   );
 };

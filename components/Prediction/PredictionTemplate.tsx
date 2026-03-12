@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { ScanningAnimation } from "./ScanningAnimation";
 
 interface PredictionTemplateProps {
   title: React.ReactNode;
@@ -23,7 +24,6 @@ const PredictionTemplate = ({ title, description, sampleImages }: PredictionTemp
 
   const [gradcamImage, setGradcamImage] = useState<string | null>(null);
   const [displayConfidence, setDisplayConfidence] = useState(0);
-
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   // Smooth scrolling for sample images
@@ -147,6 +147,7 @@ const PredictionTemplate = ({ title, description, sampleImages }: PredictionTemp
     setResult(null);
     setGradcamImage(null);
   };
+  
 
   return (
     <section className="pb-[120px] pt-[150px] bg-gray-50 dark:bg-dark min-h-screen transition-colors">
@@ -243,7 +244,7 @@ const PredictionTemplate = ({ title, description, sampleImages }: PredictionTemp
                 onClick={clearSelection}
                 className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
               >
-                New Image
+                 New Analysis
               </button>
             </div>
           ) : (
@@ -251,12 +252,20 @@ const PredictionTemplate = ({ title, description, sampleImages }: PredictionTemp
             <div className="flex flex-col items-center w-full animate-fade-in">
 
               <div className="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-md mb-6 bg-gray-100 dark:bg-gray-800">
+
                 <Image
                   src={selectedImage}
                   alt="Selected Image"
                   fill
                   className="object-contain p-2"
                 />
+
+                <ScanningAnimation
+                  isVisible={isAnalyzing}
+                  color="cyan"
+                  duration={2}
+                />
+
               </div>
 
               <div className="flex gap-4 w-full justify-center">
@@ -266,7 +275,7 @@ const PredictionTemplate = ({ title, description, sampleImages }: PredictionTemp
                   disabled={isAnalyzing}
                   className="px-6 py-3 rounded-lg border border-gray-300 dark:border-gray-600 text-black dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition disabled:opacity-50"
                 >
-                  New Image
+                  New Analysis
                 </button>
 
                 <button

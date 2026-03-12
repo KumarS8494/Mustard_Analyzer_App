@@ -21,7 +21,7 @@ const Brands = () => {
                 viewport={{ once: true }}
                 className="text-2xl md:text-3xl font-bold text-black dark:text-white mr-6 text-center md:text-left"
               >
-                Collaborate with the ICAR-National Institute of Biotic Stress Management.
+               In collaboration with the ICAR-National Institute of Biotic Stress Management.
               </motion.h1>
 
               {/* Animated Brands */}

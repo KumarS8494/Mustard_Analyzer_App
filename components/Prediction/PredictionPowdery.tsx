@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useRef, useEffect } from "react";
 import ReactMarkdown from "react-markdown";
+import { ScanningAnimation } from "./ScanningAnimation";
 
 interface PredictionPowderyProps {
   title: React.ReactNode;
@@ -243,13 +244,21 @@ const PredictionPowdery = ({ title, description, sampleImages }: PredictionPowde
             /* PHASE 2: Image selected but not yet analyzed (or currently analyzing) */
             <div className="flex flex-col items-center w-full animate-fade-in">
 
-              <div className="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-md mb-6 bg-gray-100 dark:bg-gray-800">
+              <div className="relative w-full max-w-md aspect-square rounded-xl overflow-hidden shadow-md mb-6 bg-gray-100">
+
                 <Image
                   src={selectedImage}
-                  alt="Selected Image"
+                  alt="Selected"
                   fill
                   className="object-contain p-2"
                 />
+
+                <ScanningAnimation
+                  isVisible={isAnalyzing}
+                  color="cyan"
+                  duration={2}
+                />
+
               </div>
 
               <div className="flex gap-4 w-full justify-center">

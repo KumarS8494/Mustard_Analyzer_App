@@ -31,3 +31,19 @@
     @apply opacity-100;
   }
 }
+.scan-line {
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  background: #4A6CF7;
+  animation: scan 1.5s linear infinite;
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}

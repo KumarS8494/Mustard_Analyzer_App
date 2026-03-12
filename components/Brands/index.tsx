@@ -13,23 +13,22 @@ const Brands = () => {
           <div className="w-full px-4">
             <div className="bg-gray-light dark:bg-gray-dark flex flex-wrap items-center justify-center rounded-sm px-8 py-8 sm:px-10 md:px-[50px] md:py-[40px] xl:p-[50px] 2xl:px-[70px] 2xl:py-[60px]">
               
-              {/* Animated Heading */}
-              <motion.h1 
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-                className="text-2xl md:text-3xl font-bold text-black dark:text-white mr-6 text-center md:text-left"
-              >
-               In collaboration with the ICAR-National Institute of Biotic Stress Management.
-              </motion.h1>
-
-              {/* Animated Brands */}
+             {/* Animated Brands */}
               <div className="flex flex-wrap items-center justify-center ">
                 {brandsData.map((brand, index) => (
                   <SingleBrand key={brand.id} brand={brand} index={index} />
                 ))}
               </div>
+                            {/* Animated Heading */}
+              <motion.h1 
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.9, ease: "easeOut" }}
+                viewport={{ once: true }}
+                className="text-2xl md:text-3xl font-bold text-black dark:text-white mr-6 text-center md:text-left"
+              >
+               In collaboration with the ICAR-National Institute of Biotic Stress Management.
+              </motion.h1>
               
             </div>
           </div>
@@ -48,7 +47,7 @@ const SingleBrand = ({ brand, index }: { brand: Brand; index: number }) => {
       initial={{ opacity: 0, scale: 0.8, y: 20 }}
       whileInView={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ 
-        duration: 0.5, 
+        duration: 0.8, 
         delay: index * 0.1, 
         type: "spring", 
         stiffness: 100 

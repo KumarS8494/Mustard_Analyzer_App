@@ -49,27 +49,46 @@ const Header = () => {
       >
         <div className="container">
           <div className="relative -mx-4 flex items-center justify-between">
-            <div className="w-60 max-w-full px-4 xl:mr-12">
+            <div className="w-120 max-w-full px-4 xl:mr-12">
               <Link
                 href="/"
-                className={`header-logo block w-full ${
+                className={`header-logo flex items-center gap-3 ${
                   sticky ? "py-5 lg:py-2" : "py-8"
-                } `}
+                }`}
               >
+                {/* Main Logo */}
                 <Image
                   src="/images/logo/acai_logo-removebg-preview.png"
-                  alt="logo"
-                  width={140}
+                  alt="ACAI logo"
+                  width={170}
                   height={30}
-                  className="w-full dark:hidden"
+                  className="dark:hidden"
                 />
+
                 <Image
                   src="/images/logo/acai_logo-removebg-preview.png"
-                  alt="logo"
+                  alt="ACAI logo"
+                  width={170}
+                  height={30}
+                  className="hidden dark:block"
+                />
+
+                {/* Second Logo */}
+                {/* <Image
+                  src="/images/logo/nibsm_logo.jpg"
+                  alt="Second logo"
                   width={140}
                   height={30}
-                  className="hidden w-full dark:block"
+                  className="dark:hidden"
                 />
+
+                <Image
+                  src="/images/logo/nibsm_logo.jpg"
+                  alt="Second logo"
+                  width={140}
+                  height={30}
+                  className="hidden dark:block"
+                /> */}
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">

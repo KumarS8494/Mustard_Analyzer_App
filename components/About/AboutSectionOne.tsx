@@ -87,7 +87,7 @@ const AboutSectionOne = () => {
             </div>
           </div>
 
-          <div className="flex w-full flex-col gap-6">
+          <div className="flex w-full flex-col gap-6 text-justify">
             
             {/* Box 1: Background */}
             <div className="group w-full rounded-xl border border-gray-100 bg-gray-50 p-6 shadow-sm transition-all duration-300 hover:border-primary hover:bg-white hover:shadow-xl dark:border-gray-800 dark:bg-gray-900 dark:hover:border-primary dark:hover:bg-dark sm:p-8">

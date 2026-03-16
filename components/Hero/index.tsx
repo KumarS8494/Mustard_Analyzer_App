@@ -26,15 +26,15 @@ const Hero = () => {
               >
                 
                 <h1 className="mb-5 text-3xl font-bold leading-tight text-black dark:text-white sm:text-4xl sm:leading-tight md:text-5xl md:leading-tight">
-                  MustardSense - AI-Powered Analytics for Smarter Farmer Desicions
+                  KrishakSakha - AI-Powered Analytics for Smarter Farmer Desicions
                 </h1>
 
                 <p className="mb-12 h-48 text-base !leading-relaxed text-black dark:text-body-color-dark sm:text-lg md:text-xl text-justify">
-                  {/* MustardSense is an AI-powered analytics platform designed to empower farmers
+                  {/* KrishakSakha is an AI-powered analytics platform designed to empower farmers
                   with actionable insights for smarter decision-making. By leveraging advanced
-                  machine learning algorithms and real-time data, MustardSense helps farmers
+                  machine learning algorithms and real-time data, KrishakSakha helps farmers
                   optimize crop yields, manage resources efficiently, and make informed choices
-                  to enhance their agricultural practices. With MustardSense, farmers can stay
+                  to enhance their agricultural practices. With KrishakSakha, farmers can stay
                   ahead of challenges and maximize their productivity in an ever-evolving
                   agricultural landscape. */}
                 </p>

@@ -16,7 +16,7 @@ const testimonialData: Testimonial[] = [
     designation: "Project Research Scientist, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
     content: "",
     image: "/images/testimonials/sk_profile.jpeg",
-    star: 2,
+    star: 5,
   },
   {
     id: 2,
@@ -24,7 +24,7 @@ const testimonialData: Testimonial[] = [
     designation: "Joint Director, ICAR-National Institute of Biotic Stress Management, Chhattisgarh.",
     content: "",
     image: "/images/testimonials/Dr-Pankaj-Sharma-1.jpg",
-    star: 3,
+    star: 5,
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const testimonialData: Testimonial[] = [
     designation: "Assistant Professor, Amity Centre for Artificial Intelligence (ACAI), Amity University, Noida.",
     content: "",
     image: "/images/testimonials/Rakesh_Chandra_Joshi.jpg",
-    star: 4,
+    star: 5,
   },
   {
     id: 4,
@@ -48,7 +48,7 @@ const testimonialData: Testimonial[] = [
     designation: "Scientist ( Environmental Science) School of Crop Health Biology Research ICAR- NIBSM.",
     content: "",
     image: "/images/testimonials/Shravani_Scientist.jpeg",
-    star: 6,
+    star: 5,
   },
 ];
 

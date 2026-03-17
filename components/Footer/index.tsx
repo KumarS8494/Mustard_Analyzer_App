@@ -199,9 +199,9 @@ const Footer = () => {
           <div className="h-px w-full bg-gradient-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
-              ACAI{" "}
-              <a href="https://nextjstemplates.com" rel="nofollow noopener">
-                AMITY
+              © 2026 ACAI AMITY. All rights reserved {" "}
+              <a href="https://amity.edu/noida/acai/" rel="nofollow noopener">
+                | Powered by ACAI AMITY Noida
               </a>
             </p>
           </div>

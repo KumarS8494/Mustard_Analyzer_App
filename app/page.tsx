@@ -12,8 +12,8 @@ import Video from "@/components/Video";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Mustard Sans App - Home",
-  description: "Welcome to Mustard Sans App, your ultimate solution for seamless communication and collaboration. Discover our innovative features, user-friendly interface, and how we can help you stay connected with your team. Join us today and experience the future of communication!",
+  title: "Krishaksakha - Home",
+  description: "Welcome to Krishaksakha, your ultimate solution for seamless communication and collaboration. Discover our innovative features, user-friendly interface, and how we can help you stay connected with your team. Join us today and experience the future of communication!",
   // other metadata
 };
 

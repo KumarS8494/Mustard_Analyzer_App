@@ -11,10 +11,30 @@ import Testimonials from "@/components/Testimonials";
 import Video from "@/components/Video";
 import { Metadata } from "next";
 
-export const metadata: Metadata = {
-  title: "Krishaksakha - Home",
-  description: "Welcome to Krishaksakha, your ultimate solution for seamless communication and collaboration. Discover our innovative features, user-friendly interface, and how we can help you stay connected with your team. Join us today and experience the future of communication!",
-  // other metadata
+export const metadata = {
+  title: "KrishakSakha - AI-Powered Analytics for Smarter Farmer Decisions",
+  description: "AI-powered mustard crop health monitoring and disease prediction system by ACAI Amity University and ICAR-NIBSM",
+  openGraph: {
+    title: "KrishakSakha - AI-Powered Analytics for Smarter Farmer Decisions",
+    description: "AI-powered mustard crop health monitoring and disease prediction",
+    url: "https://krishaksakha.netlify.app/",
+    siteName: "KrishakSakha",
+    images: [
+      {
+        url: "https://krishaksakha.netlify.app/images/logo/acai_logo-removebg-preview.png",
+        width: 1200,
+        height: 630,
+        alt: "KrishakSakha Logo",
+      },
+    ],
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "KrishakSakha - AI-Powered Analytics",
+    description: "AI-powered mustard crop health monitoring",
+    images: ["https://krishaksakha.netlify.app/images/logo/acai_logo-removebg-preview.png"],
+  },
 };
 
 export default function Home() {

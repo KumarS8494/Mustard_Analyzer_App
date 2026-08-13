@@ -9,13 +9,20 @@ interface PredictionWheatEarProps {
   title: React.ReactNode;
   description: string;
   sampleImages: string[];
+  endpoint?: string;
 }
 
 const PredictionWheatEar = ({
   title,
   description,
   sampleImages,
+  endpoint = "wheat",
 }: PredictionWheatEarProps) => {
+  const apiBaseUrl = (
+    process.env.NEXT_PUBLIC_DISEASE_API_URL ||
+    "https://kumars81-mustard-wheat-disease-api.hf.space"
+  ).replace(/\/$/, "");
+
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
@@ -28,6 +35,7 @@ const PredictionWheatEar = ({
 
   const [gradcamImage, setGradcamImage] = useState<string | null>(null);
   const [displayConfidence, setDisplayConfidence] = useState(0);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
@@ -89,6 +97,7 @@ const PredictionWheatEar = ({
 
       setResult(null);
       setGradcamImage(null);
+      setErrorMessage(null);
     }
   };
 
@@ -96,6 +105,7 @@ const PredictionWheatEar = ({
     setSelectedImage(imagePath);
     setResult(null);
     setGradcamImage(null);
+    setErrorMessage(null);
 
     const response = await fetch(imagePath);
     const blob = await response.blob();
@@ -110,20 +120,24 @@ const PredictionWheatEar = ({
     setIsAnalyzing(true);
     setResult(null);
     setGradcamImage(null);
+    setErrorMessage(null);
 
     try {
       const formData = new FormData();
       formData.append("file", selectedFile);
 
-      const End_Point =
-        "https://kumars81-mustard-wheat-disease-api.hf.space/predict/wheat";
+      const endpointUrl = `${apiBaseUrl}/predict/${endpoint}`;
 
-      const response = await fetch(End_Point, {
+      const response = await fetch(endpointUrl, {
         method: "POST",
         body: formData,
       });
 
       const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.detail || "Image analysis failed.");
+      }
 
       setResult({
         severity: data.class_name,
@@ -136,9 +150,14 @@ const PredictionWheatEar = ({
       }
     } catch (error) {
       console.error("Prediction error:", error);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "Unable to analyze the image. Please try again.",
+      );
+    } finally {
+      setIsAnalyzing(false);
     }
-
-    setIsAnalyzing(false);
   };
 
   const clearSelection = () => {
@@ -146,6 +165,7 @@ const PredictionWheatEar = ({
     setSelectedFile(null);
     setResult(null);
     setGradcamImage(null);
+    setErrorMessage(null);
   };
 
   return (
@@ -200,6 +220,7 @@ const PredictionWheatEar = ({
                 />
               </label>
 
+              {sampleImages.length > 0 && (
               <div className="mt-10 w-full">
                 <div className="flex items-center mb-6">
                   <hr className="flex-grow border-gray-200" />
@@ -228,6 +249,7 @@ const PredictionWheatEar = ({
                   ))}
                 </div>
               </div>
+              )}
             </div>
           ) : result ? (
             /* PHASE 3: Analysis complete - Show only New Image button above results */
@@ -280,6 +302,15 @@ const PredictionWheatEar = ({
           {/* LOGIC CHANGE END */}
 
           {/* RESULTS */}
+          {errorMessage && (
+            <div
+              role="alert"
+              className="mt-6 rounded-xl border border-red-200 bg-red-50 p-4 text-center text-red-700 dark:border-red-800 dark:bg-red-900/10 dark:text-red-400"
+            >
+              {errorMessage}
+            </div>
+          )}
+
           {result && (
             <div className="mt-4 p-6 bg-green-50 border border-green-200 rounded-xl dark:bg-green-900/10 dark:border-green-800">
               <h3 className="text-xl font-bold text-green-700 dark:text-green-400 mb-6">

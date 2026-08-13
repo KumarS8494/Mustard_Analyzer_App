@@ -10,6 +10,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
     if (blogId === 1) return "/aphid-scan";
     if (blogId === 2) return "/powdery-scan";
     if (blogId === 3) return "/white-ear-scan";
+    if (blogId === 4) return "/rice-white-ear-scan";
     return "/blog-details"; // Fallback just in case
   };
 
@@ -17,7 +18,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
   const destination = getScannerLink(id);
 
   return (
-    <div className="group relative overflow-hidden rounded-sm bg-white shadow-one duration-300 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark">
+    <div className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-white shadow-one duration-300 hover:-translate-y-1 hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark">
       
       {/* UPDATE THIS LINK */}
       <Link
@@ -30,7 +31,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
         <Image src={image} alt="image" fill className="object-cover transition-transform duration-300 group-hover:scale-105" />
       </Link>
       
-      <div className="p-6 sm:p-8 md:px-6 md:py-8 lg:p-8 xl:px-5 xl:py-8 2xl:p-8">
+      <div className="flex flex-1 flex-col p-6 sm:p-8">
         <h3>
           {/* UPDATE THIS LINK TOO */}
           <Link
@@ -40,7 +41,7 @@ const SingleBlog = ({ blog }: { blog: Blog }) => {
             {title}
           </Link>
         </h3>
-        <p className="mb-6 border-b border-body-color border-opacity-10 pb-6 text-base font-medium text-body-color dark:border-white dark:border-opacity-10">
+        <p className="text-base font-medium text-body-color">
           {paragraph}
         </p>
       </div>

@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    useDeploymentId: true,
+  },
   images: {
     domains: ["localhost"],
     remotePatterns: [

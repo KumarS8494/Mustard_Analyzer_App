@@ -5,7 +5,7 @@ const blogData: Blog[] = [
     id: 1,
     title: "AphidScan: Mustard Aphid Infestation Analyzer",
     paragraph:
-      "AI-powered detection of white ear severity in wheat plants or confirmation of a healthy wheat crop.",
+      "AI-powered detection of aphid infestation severity in mustard plants or confirmation of a healthy mustard crop.",
     image: "/images/blog/DSC_0043.JPG",
     tags: ["Prediction"],
   },
@@ -13,7 +13,7 @@ const blogData: Blog[] = [
     id: 2,
     title: " PowderyScan: Mustard Powdery Infestation Analyzer",
     paragraph:
-      "AI-powered detection of white ear severity in wheat plants or confirmation of a healthy wheat crop.",
+      "AI-powered detection of powdery mildew severity in mustard plants or confirmation of a healthy mustard crop.",
     image: "/images/blog/DSC_0070.JPG",
     tags: ["Prediction"],
   },
